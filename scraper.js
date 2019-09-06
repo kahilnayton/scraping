@@ -16,17 +16,17 @@ const directions = new Set();
 // Use the `get` method of axios with the URL of the ButterCMS documentation page as an argument
 const fetchData = async () => {
     const result = await axios.get('https://www.eatthelove.com/vegetarian-breakfast-tacos/')
-            return cheerio.load(html)
+            return cheerio.load(result.data)
         }
 
     const getResults = async () => {
-        const $ = await fetchData();
+        const $ = await fetchData()
 
-    $('.wprm-recipe-ingredients').each((i, el) => {
-        const title = $(el)
-        .find('.wprm-recipe-ingredient')
-        .text()
-        .replace(/\s\s+/g, '')
+        $('.wprm-recipe-ingredient').each((i, el) => {
+            title.add($(el).text())
+            // .find('.wprm-recipe-ingredient')
+            // .text()
+            // .replace(/\s\s+/g, ''))
         
         // $('.wprm-recipe-instruction').each((i, el) => {
         //     const instructions = $(el)
@@ -51,11 +51,14 @@ const fetchData = async () => {
 
     // //     Using a spead opperator to turn the object into an array and then using the sort function to order them by their utf-16 code
     
+    console.log(title)
     return {
-      title: [...title].sort(),
-    //   ingredients: [...ingredients].sort(),
-    //   directions: [...directions].sort(),
+        title: [...title].sort(), title,
+        //   ingredients: [...ingredients].sort(),
+      //   directions: [...directions].sort(),
     }
 }
-//   getResults()
+
+getResults()
+
   module.exports = getResults;

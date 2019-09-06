@@ -1,7 +1,10 @@
 extends layout
 block content
  h1 #{name}!
+ h1 #{title}!
  h1 #{entryTitle}
+
+
 
  h1 #{output}
 
@@ -11,15 +14,15 @@ block content
   each val in title
    li= val
 
- h3 Ingredients
- ul
-  each val in ingredients
-   li= val
+//-  h3 Ingredients
+//-  ul
+//-   each val in ingredients
+//-    li= val
 
- h3 Directions
- ul
- each val in directions
-  li= val
+//-  h3 Directions
+//-  ul
+//-  each val in directions
+//-   li= val
 
 
 
