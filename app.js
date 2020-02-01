@@ -3,11 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+
+// This is a way to console log different elements you are trying to find
+window.addEventListener("click", function (event) {
+  console.log(event.target)
+})
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
